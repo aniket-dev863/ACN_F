@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Age Validation</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 50px;
+      }
+
+      .card {
+        width: 350px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+
+      button {
+        margin-top: 15px;
+        padding: 10px 15px;
+      }
+
+      #message {
+        margin-top: 10px;
+      }
+
+      .valid {
+        color: green;
+      }
+
+      .invalid {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <input id="age" type="number" placeholder="Age" />
+
+      <button id="submitBtn" disabled>Continue</button>
+
+      <p id="message">Enter an age.</p>
+    </div>
+
+    <script>
+      const input = document.getElementById("age");
+      const btn = document.getElementById("submitBtn");
+      const msg = document.getElementById("message");
+      input.addEventListener("input", () => {
+        msg.classList.remove("valid", "invalid");
+        const age = Number(input.value.trim());
+        if (age == "") {
+          btn.disabled = true;
+          msg.textContent = `Enter Your Age`;
+          msg.classList.add("valid");
+        } else if (age < 18 || age > 65) {
+          btn.disabled = true;
+          msg.textContent = `Age Should be between 18 and 65 .`;
+          msg.classList.add("invalid");
+        } else {
+          btn.disabled = false;
+          msg.textContent = `Age is valid .You can Submit`;
+          msg.classList.add("valid");
+        }
+      });
+    </script>
+  </body>
+</html>

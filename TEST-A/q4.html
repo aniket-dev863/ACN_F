@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User Search</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .container {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        margin-bottom: 15px;
+      }
+
+      .user {
+        padding: 10px;
+        margin-top: 5px;
+        background: #eee;
+        border-radius: 5px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      .match {
+        border: 2px solid green;
+      }
+
+      #count {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <input id="search" placeholder="Search users..." />
+
+      <div id="users">
+        <div class="user">Aniket</div>
+        <div class="user">Rahul</div>
+        <div class="user">Priya</div>
+        <div class="user">Amit</div>
+        <div class="user">Sneha</div>
+      </div>
+
+      <p id="count">5 users</p>
+    </div>
+
+    <script></script>
+  </body>
+</html>

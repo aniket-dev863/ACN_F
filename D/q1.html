@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Username Validation</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 50px;
+      }
+
+      .card {
+        width: 350px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+
+      #message {
+        margin-top: 10px;
+      }
+
+      .valid {
+        color: green;
+      }
+
+      .invalid {
+        color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <input id="username" placeholder="Enter username" />
+
+      <p id="message">Username is required.</p>
+    </div>
+
+    <script>
+      const isValid = (str) => {
+        return /^[A-Za-z0-9]+$/.test(str);
+      };
+      const input = document.getElementById("username");
+      const msg = document.getElementById("message");
+      input.addEventListener("input", () => {
+        const text = input.value.trim();
+        msg.classList.remove("valid", "invalid");
+        if (isValid(text)) {
+          msg.textContent = `Valid`;
+          msg.classList.add("valid");
+        } else {
+          msg.classList.add("invalid");
+        }
+      });
+    </script>
+  </body>
+</html>

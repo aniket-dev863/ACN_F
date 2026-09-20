@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registration Form</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .card {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        margin-bottom: 12px;
+      }
+
+      .radio-group {
+        margin-bottom: 15px;
+      }
+
+      .radio-group input {
+        width: auto;
+      }
+
+      .terms {
+        margin-bottom: 15px;
+      }
+
+      .terms input {
+        width: auto;
+      }
+
+      button {
+        padding: 10px 15px;
+      }
+
+      #message {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <form id="registerForm">
+        <input id="username" type="text" placeholder="Username" required />
+
+        <input
+          id="age"
+          type="number"
+          min="18"
+          max="60"
+          placeholder="Age"
+          required
+        />
+
+        <div class="radio-group">
+          <label>
+            <input type="radio" name="role" value="developer" />
+            Developer
+          </label>
+
+          <label>
+            <input type="radio" name="role" value="designer" />
+            Designer
+          </label>
+        </div>
+
+        <label class="terms">
+          <input type="checkbox" id="terms" />
+          I accept the terms
+        </label>
+
+        <button id="submitBtn" type="submit" disabled>Register</button>
+
+        <p id="message">Complete the form.</p>
+      </form>
+    </div>
+
+    <script>
+      // TODO: your JS here
+    </script>
+  </body>
+</html>
