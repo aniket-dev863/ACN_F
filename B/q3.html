@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Add Task</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 50px;
+      }
+
+      .container {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .input-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      input {
+        flex: 1;
+        padding: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+      }
+
+      li {
+        margin-top: 10px;
+        padding: 8px;
+        background: #eee;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="input-row">
+        <input id="taskInput" placeholder="Enter task" />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <ul id="taskList">
+        <li>Learn JavaScript</li>
+      </ul>
+    </div>
+
+    <script>
+      const button = document.getElementById("addBtn");
+      const input = document.getElementById("taskInput");
+      const list = document.getElementById("taskList");
+      button.addEventListener("click", () => {
+        const text = input.value.trim();
+        if (text === "") return;
+        const li = document.createElement("li");
+        li.textContent = text;
+        list.append(li);
+        input.value = "";
+      });
+    </script>
+  </body>
+</html>

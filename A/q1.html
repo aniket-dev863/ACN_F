@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Click Counter</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f4f4f4;
+      }
+
+      .card {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      button {
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+
+      #count {
+        margin-top: 15px;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <button id="clickBtn">INC</button>
+    </div>
+
+    <div class="card">
+      <button id="decButton">DEC</button>
+    </div>
+
+    <div>
+      <p id="count">Clicks: 0</p>
+    </div>
+
+    <div>
+      <p id="Text">......</p>
+    </div>
+    <script>
+      const button = document.getElementById("clickBtn");
+      const decButton = document.getElementById("decButton");
+      const count = document.getElementById("count");
+      const text = document.getElementById("Text");
+      let cnt = 0;
+      button.addEventListener("click", () => {
+        cnt = cnt + 1;
+
+        if (cnt > 10) {
+          text.textContent = `Value cannot be Decreased Beyond zero`;
+          cnt = Math.min(10, cnt);
+        }
+        count.textContent = `Clicks: ${cnt}`;
+      });
+      decButton.addEventListener("click", () => {
+        cnt = cnt - 1;
+        if (cnt < 10) {
+          text.textContent = ``;
+        }
+        if (cnt < 0) {
+          text.textContent = `Value cannot be Decreased Beyond zero`;
+          cnt = Math.max(0, cnt);
+        }
+        count.textContent = `Clicks : ${cnt}`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Character Preview</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .card {
+        background: white;
+        width: 350px;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      #preview {
+        margin-top: 15px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <input type="text" id="username" placeholder="Enter username" />
+
+      <p id="preview">Your username will appear here</p>
+    </div>
+
+    <script>
+      const input = document.getElementById("username");
+      const preview = document.getElementById("preview");
+      input.addEventListener("input", () => {
+        preview.textContent = `You typed :${input.value}`;
+      });
+    </script>
+  </body>
+</html>

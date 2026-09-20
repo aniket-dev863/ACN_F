@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prevent Default</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 50px;
+        background: #f5f5f5;
+      }
+
+      .panel {
+        max-width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      a {
+        color: blue;
+        text-decoration: none;
+      }
+
+      #status {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="panel">
+      <a href="https://example.com" id="logoutLink">Logout</a>
+
+      <p id="status">You are currently logged in.</p>
+    </div>
+
+    <script>
+      const logoutClick = document.getElementById("logoutLink");
+      const status = document.getElementById("status");
+      logoutClick.addEventListener("click", (e) => {
+        e.preventDefault();
+        status.textContent = "Logout Confirmation required ";
+      });
+    </script>
+  </body>
+</html>

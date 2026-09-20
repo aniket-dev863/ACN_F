@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Keyboard Handler</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #eef2f7;
+      }
+
+      .box {
+        width: 350px;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+      #message {
+        margin-top: 15px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <input id="commandInput" placeholder="Type a command..." />
+      <p id="message">Waiting for input...</p>
+    </div>
+
+    <script>
+      function Check(str) {
+        return /^[A-Za-z]+$/.test(str);
+      }
+      const input = document.getElementById("commandInput");
+      const message = document.getElementById("message");
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          message.textContent = Check(input.value)
+            ? `Valid ${input.value}`
+            : `Enter valid Input`;
+        } else if (e.key === "Escape") {
+          input.value = ``;
+          message.textContent = `Erased`;
+        }
+      });
+    </script>
+  </body>
+</html>

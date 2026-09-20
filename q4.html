@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Remove Notification</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f2f2f2;
+        padding: 40px;
+      }
+
+      .container {
+        width: 450px;
+        margin: auto;
+      }
+
+      .notification {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+      }
+
+      button {
+        padding: 6px 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="notification">
+        <span>Server restarted</span>
+        <button id="remove1">Remove</button>
+      </div>
+
+      <div class="notification">
+        <span>Backup completed</span>
+        <button id="remove2">Remove</button>
+      </div>
+
+      <div class="notification">
+        <span>Deployment successful</span>
+        <button id="remove3">Remove</button>
+      </div>
+    </div>
+
+    <script>
+      const button = document.querySelectorAll(".notification button");
+      button.forEach((b) => {
+        b.addEventListener("click", () => {
+          const n = b.parentElement;
+          n.remove();
+        });
+      });
+    </script>
+  </body>
+</html>
