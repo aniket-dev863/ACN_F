@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Selector</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f5f5f5;
+        padding: 40px;
+      }
+
+      .products {
+        width: 500px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+
+      .product {
+        background: white;
+        padding: 20px;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+
+      .product.selected {
+        border-color: black;
+        background: #eee;
+      }
+
+      #output {
+        width: 500px;
+        margin: 20px auto;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="products" id="products">
+      <div class="product" data-name="Laptop" data-category="Electronics">
+        <h3>Laptop</h3>
+        <p>Electronics</p>
+      </div>
+
+      <div class="product" data-name="Keyboard" data-category="Accessories">
+        <h3>Keyboard</h3>
+        <p>Accessories</p>
+      </div>
+
+      <div class="product" data-name="Book" data-category="Books">
+        <h3>Book</h3>
+        <p>Books</p>
+      </div>
+    </div>
+
+    <p id="output">Select a product.</p>
+
+    <script>
+      const allProducts = document.querySelectorAll(".product");
+      const output = document.getElementById("output");
+      allProducts.forEach((prod) => {
+        prod.addEventListener("click", () => {
+          allProducts.forEach((p) => {
+            p.classList.remove("selected");
+          });
+          prod.classList.add("selected");
+          output.textContent = `Selected ${prod.dataset.name} From ${prod.dataset.category} . `;
+        });
+      });
+    </script>
+  </body>
+</html>

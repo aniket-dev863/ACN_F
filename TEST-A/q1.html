@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Status Selector</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 50px;
+      }
+
+      .card {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .statuses {
+        display: flex;
+        gap: 10px;
+      }
+
+      .status-btn {
+        padding: 10px 15px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+        background: white;
+      }
+
+      .status-btn.active {
+        background: black;
+        color: white;
+      }
+
+      #message {
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="statuses">
+        <button class="status-btn" data-status="Online">Online</button>
+        <button class="status-btn" data-status="Busy">Busy</button>
+        <button class="status-btn" data-status="Offline">Offline</button>
+      </div>
+
+      <p id="message">Choose a status.</p>
+    </div>
+
+    <script>
+      const Buttons = document.querySelectorAll(".status-btn");
+      const display = document.getElementById("message");
+      Buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          Buttons.forEach((btn) => {
+            btn.classList.remove("active");
+          });
+          button.classList.add("active");
+          const status = button.dataset.status;
+          display.textContent = `Status ${status}`;
+        });
+      });
+    </script>
+  </body>
+</html>

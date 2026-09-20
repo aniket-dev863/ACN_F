@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Notifications</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .container {
+        width: 450px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .input-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input {
+        flex: 1;
+        padding: 10px;
+      }
+
+      button {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
+
+      .notification {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        margin-top: 10px;
+        background: #eee;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="input-row">
+        <input id="notificationInput" placeholder="Enter notification" />
+        <button id="addBtn">Add</button>
+      </div>
+
+      <div id="notificationList">
+        <div class="notification">
+          <span>Server started</span>
+          <button class="removeBtn">Remove</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const input = document.getElementById("notificationInput");
+      const add = document.getElementById("addBtn");
+      const list = document.getElementById("notificationList");
+      add.addEventListener("click", () => {
+        const text = input.value.trim();
+        if (text === "") return;
+        else {
+          const par = document.createElement("div");
+          par.classList.add("notification");
+          const span = document.createElement("span");
+          const btn = document.createElement("Button");
+          btn.classList.add("removeBtn");
+          btn.textContent = "Remove";
+          span.textContent = text;
+
+          par.append(span, btn);
+          list.append(par);
+          input.value = "";
+        }
+      });
+      list.addEventListener("click", (e) => {
+        if (!e.target.classList.contains("removeBtn")) {
+          return;
+        }
+        e.target.closest(".notification").remove();
+      });
+    </script>
+  </body>
+</html>
