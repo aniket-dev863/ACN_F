@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registration Wizard</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .wizard {
+        width: 500px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .step {
+        display: none;
+      }
+
+      .active {
+        display: block;
+      }
+
+      .controls {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      button {
+        padding: 10px 15px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wizard">
+      <p id="stepIndicator">Step 1 of 3</p>
+
+      <div class="step active">
+        <h2>Personal Information</h2>
+        <input placeholder="Name" />
+      </div>
+
+      <div class="step">
+        <h2>Account Information</h2>
+        <input placeholder="Email" />
+      </div>
+
+      <div class="step">
+        <h2>Confirmation</h2>
+        <p>Review your information.</p>
+      </div>
+
+      <div class="controls">
+        <button id="prevBtn">Previous</button>
+
+        <button id="nextBtn">Next</button>
+      </div>
+    </div>
+
+    <script>
+      // TODO: your JS here
+    </script>
+  </body>
+</html>

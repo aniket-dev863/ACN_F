@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tabs</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: #f4f4f4;
+      }
+
+      .card {
+        width: 500px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .tabs {
+        display: flex;
+        gap: 10px;
+      }
+
+      .tab {
+        padding: 10px 15px;
+        cursor: pointer;
+      }
+
+      .active {
+        background: #222;
+        color: white;
+      }
+
+      .panel {
+        display: none;
+        padding: 20px;
+      }
+
+      .visible {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="tabs">
+        <button class="tab active" data-tab="profile">Profile</button>
+
+        <button class="tab" data-tab="orders">Orders</button>
+
+        <button class="tab" data-tab="settings">Settings</button>
+      </div>
+
+      <div id="profile" class="panel visible">Profile information</div>
+
+      <div id="orders" class="panel">Your orders</div>
+
+      <div id="settings" class="panel">Account settings</div>
+    </div>
+
+    <script>
+      const tabs = document.querySelectorAll(".tab");
+      const panels = document.querySelectorAll(".panel");
+      let activeTab = "profile";
+      const render = () => {
+        tabs.forEach((t) => {
+          const isActive = t.dataset.tab === activeTab;
+          t.classList.toggle("active", isActive);
+        });
+        panels.forEach((p) => {
+          const isVisible = p.id === activeTab;
+          p.classList.toggle("visible", isVisible);
+        });
+      };
+      tabs.forEach((t) => {
+        t.addEventListener("click", () => {
+          activeTab = t.dataset.tab;
+          render();
+        });
+      });
+      render();
+    </script>
+  </body>
+</html>

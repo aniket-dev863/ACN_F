@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>FAQ</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 40px;
+        background: #f4f4f4;
+      }
+
+      .faq {
+        width: 500px;
+        margin: auto;
+      }
+
+      .item {
+        background: white;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .question {
+        width: 100%;
+        padding: 15px;
+        border: none;
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .answer {
+        display: none;
+        padding: 15px;
+      }
+
+      .open {
+        display: block;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="faq">
+      <div class="item">
+        <button class="question">What is JavaScript?</button>
+        <div class="answer">
+          JavaScript is a programming language used heavily in browsers.
+        </div>
+      </div>
+
+      <div class="item">
+        <button class="question">What is the DOM?</button>
+        <div class="answer">The DOM represents the document as objects.</div>
+      </div>
+
+      <div class="item">
+        <button class="question">What is an event?</button>
+        <div class="answer">
+          An event represents something that happened in the browser.
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const answers = document.querySelectorAll(".answer");
+      const questions = document.querySelectorAll(".question");
+      let open = -1;
+      const render = () => {
+        answers.forEach((a, ind) => {
+          a.classList.toggle("open", ind === open);
+        });
+      };
+      questions.forEach((q, i) => {
+        q.addEventListener("click", () => {
+          if (i === open) {
+            open = -1;
+          } else {
+            open = i;
+          }
+          render();
+        });
+      });
+    </script>
+  </body>
+</html>

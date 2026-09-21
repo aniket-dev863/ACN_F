@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Search</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .card {
+        width: 500px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      .controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+
+      input,
+      select {
+        padding: 10px;
+      }
+
+      input {
+        flex: 1;
+      }
+
+      .product {
+        padding: 12px;
+        margin-top: 8px;
+        background: #eee;
+        border-radius: 6px;
+      }
+
+      #count {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <div class="controls">
+        <input id="search" placeholder="Search products..." />
+
+        <select id="category">
+          <option value="all">All</option>
+          <option value="electronics">Electronics</option>
+          <option value="books">Books</option>
+          <option value="clothing">Clothing</option>
+        </select>
+      </div>
+
+      <p id="count"></p>
+
+      <div id="productList"></div>
+    </div>
+
+    <script>
+      const products = [
+        {
+          name: "Mouse",
+          category: "electronics",
+          price: 500,
+        },
+        {
+          name: "Keyboard",
+          category: "electronics",
+          price: 1500,
+        },
+        {
+          name: "Monitor",
+          category: "electronics",
+          price: 8000,
+        },
+        {
+          name: "JavaScript Book",
+          category: "books",
+          price: 900,
+        },
+        {
+          name: "CSS Book",
+          category: "books",
+          price: 1200,
+        },
+        {
+          name: "T-Shirt",
+          category: "clothing",
+          price: 700,
+        },
+      ];
+
+      // TODO: your JS here
+    </script>
+  </body>
+</html>

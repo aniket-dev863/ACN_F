@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Like Button</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 50px;
+        background: #f4f4f4;
+      }
+
+      .card {
+        width: 350px;
+        margin: auto;
+        padding: 25px;
+        background: white;
+        text-align: center;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 12px 20px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .liked {
+        background: #222;
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <p>This is an interesting post.</p>
+
+      <button id="likeBtn">Like</button>
+    </div>
+
+    <script>
+      const like = document.getElementById("likeBtn");
+      let liked = 0;
+      like.addEventListener("click", () => {
+        liked = 1 - Number(liked);
+        like.classList.remove("liked");
+        if (liked === 1) {
+          like.innerText = `Dislike`;
+          like.classList.add("liked");
+        } else {
+          like.innerText = `Like`;
+        }
+      });
+    </script>
+  </body>
+</html>
