@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Leaderboard</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .card {
+        width: 450px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-bottom: 15px;
+      }
+
+      .player {
+        padding: 10px;
+        margin-top: 6px;
+        background: #eee;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <button id="sortBtn">Sort by Score</button>
+
+      <div id="leaderboard"></div>
+    </div>
+
+    <script>
+      const players = [
+        { name: "Aniket", score: 85 },
+        { name: "Rahul", score: 92 },
+        { name: "Priya", score: 78 },
+        { name: "Amit", score: 95 },
+      ];
+      const leaderBoard = document.getElementById("leaderboard");
+      const sortBtn = document.getElementById("sortBtn");
+      const renderPlayer = (items) => {
+        leaderBoard.innerHTML = "";
+        items.forEach(({ name, score, rank }) => {
+          const div = document.createElement("div");
+          div.classList.add("player");
+          div.textContent = `Rank: ${rank} Name :${name} - Score: ${score}`;
+          leaderBoard.append(div);
+        });
+      };
+      sortBtn.addEventListener("click", () => {
+        const sortedPlayers = [...players].sort((a, b) => {
+          return b.score - a.score;
+        });
+        const rankedPlayer = sortedPlayers.map((player, index) => {
+          return {
+            ...player,
+            rank: index + 1,
+          };
+        });
+        renderPlayer(rankedPlayer);
+      });
+    </script>
+  </body>
+</html>
