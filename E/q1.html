@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>User List</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .card {
+        width: 400px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      li {
+        padding: 10px;
+        margin-top: 6px;
+        background: #eee;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h2>Users</h2>
+
+      <ul id="userList"></ul>
+    </div>
+
+    <script>
+      const users = ["Aniket", "Rahul", "Priya", "Amit"];
+
+      const list = document.getElementById("userList");
+      const render = () => {
+        list.innerHTML = "";
+        users.forEach((u) => {
+          const li = document.createElement("li");
+          li.textContent = u;
+          list.append(li);
+        });
+      };
+      render();
+    </script>
+  </body>
+</html>

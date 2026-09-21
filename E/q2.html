@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Filter</title>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: #f4f4f4;
+        padding: 40px;
+      }
+
+      .card {
+        width: 450px;
+        margin: auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+      }
+
+      button {
+        padding: 10px 15px;
+        margin-bottom: 15px;
+      }
+
+      .product {
+        padding: 12px;
+        margin-top: 8px;
+        background: #eee;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <button id="filterBtn">Show ≤ ₹1000</button>
+
+      <div id="productList"></div>
+    </div>
+
+    <script>
+      const products = [
+        { name: "Mouse", price: 500 },
+        { name: "Keyboard", price: 1200 },
+        { name: "USB Cable", price: 300 },
+        { name: "Monitor", price: 8000 },
+        { name: "Webcam", price: 900 },
+      ];
+      const prodList = document.getElementById("productList");
+      const btn = document.getElementById("filterBtn");
+      const filter = ({ name, price }) => {
+        if (Number(price) > 1000) return false;
+        return true;
+      };
+      const renderProducts = () => {
+        products.forEach((p) => {
+          if (filter(p)) {
+            const div = document.createElement("div");
+            div.classList.add("product");
+            div.textContent = `Name :${p.name} Price: ${p.price} . `;
+            prodList.append(div);
+          }
+        });
+      };
+      btn.addEventListener("click", renderProducts);
+    </script>
+  </body>
+</html>
